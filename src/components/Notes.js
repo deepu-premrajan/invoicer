@@ -1,8 +1,8 @@
-export default function Notes() {
+export default function Notes({ notes }) {
   return (
     <>
       <section className="mb-5">
-        <p>Notes for Client</p>
+        <p className="text-justify">{notes}</p>
       </section>
     </>
   );

@@ -13,16 +13,60 @@ export default function Header({ handlePrint }) {
             <li>
               <button
                 onClick={handlePrint}
-                className="btn btn-print"
+                className="bg-blue-500
+                text-white
+                font-bold
+                py-2
+                px-8
+                rounded
+                shadow
+                border-2
+                border-blue-500
+                hover:bg-transparent
+                hover:text-blue-500
+                transition-all
+                duration-300"
               >
                 Print
               </button>
             </li>
-            <li>
-              <button className="btn btn-download">Download</button>
+            <li className="mx-2">
+              <button
+                className="bg-blue-500
+              text-white
+              font-bold
+              py-2
+              px-8
+              rounded
+              shadow
+              border-2
+              border-blue-500
+              hover:bg-transparent
+              hover:text-blue-500
+              transition-all
+              duration-300"
+              >
+                Download
+              </button>
             </li>
             <li>
-              <button className="btn btn-send">Send</button>
+              <button
+                className="bg-blue-500
+              text-white
+              font-bold
+              py-2
+              px-8
+              rounded
+              shadow
+              border-2
+              border-blue-500
+              hover:bg-transparent
+              hover:text-blue-500
+              transition-all
+              duration-300"
+              >
+                Send
+              </button>
             </li>
           </ul>
         </div>

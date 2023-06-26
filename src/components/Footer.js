@@ -1,29 +1,31 @@
-export default function Footer() {
+export default function Footer({ name, email, phone, bankAccount, bankName }) {
   return (
     <>
-      <footer className="flex flex-wrap items-center justify-center">
-        <ul>
+      <footer className="footer border-t-2 border-gray-500 pt-5">
+        <ul className="flex flex-wrap items-center justify-center">
           <li>
-            <span className="font-bold">Name:</span> Deepu Premrajan
+            <span className="font-bold">Name:</span>
+            {name}
           </li>
           <li>
             <span className="font-bold">E-mail:</span>
-            deepu.premrajan@gmail.com
+            {email}
           </li>
           <li>
-            <span className="font-bold">Phone No.:</span> 310.948.0855
+            <span className="font-bold">Phone No.:</span>
+            {phone}
           </li>
           <li>
-            <span className="font-bold">Bank:</span> Bank of America
+            <span className="font-bold">Bank:</span>
+            {bankName}
           </li>
           <li>
-            <span className="font-bold">Account Holder:</span> Deepu Premrajan
+            <span className="font-bold">Account Holder:</span>
+            {name}
           </li>
           <li>
-            <span className="font-bold">Account No.:</span> 12345678
-          </li>
-          <li>
-            <span className="font-bold">Website:</span> deepu.com
+            <span className="font-bold">Account No.:</span>
+            {bankAccount}
           </li>
         </ul>
       </footer>

@@ -1,9 +1,9 @@
-export default function ClientInformation() {
+export default function ClientInformation({ clientName, clientAddress }) {
   return (
     <>
       <section className="mt-5">
-        <h2 className="text-xl uppercase">Client's Name</h2>
-        <p>Client's Address</p>
+        <h2 className="text-xl uppercase">{clientName}</h2>
+        <p>{clientAddress}</p>
       </section>
     </>
   );
