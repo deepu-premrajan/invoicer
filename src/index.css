@@ -5,7 +5,28 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: lightblue;
+  background-color: gray;
+}
+
+label {
+  margin-bottom: 0.3rem;
+  font-size: 1.1rem;
+  color: #112827;
+  font-weight: bold;
+}
+
+input,
+textarea {
+  background-color: #f1f1f1;
+  padding: 0.5rem;
+  border-radius: 0.2rem;
+  margin-bottom: 0.8rem;
+  color: #383838;
+  font-weight: 600;
+}
+
+button {
+  user-select: none;
 }
 
 .footer li {
