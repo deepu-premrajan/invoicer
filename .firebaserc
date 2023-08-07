@@ -1,0 +1,8 @@
+{
+  "projects": {
+    "default": "invoicehost-f8db0",
+    "tester": "invoicehost-f8db0"
+  },
+  "targets": {},
+  "etags": {}
+}
