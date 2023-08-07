@@ -9,6 +9,7 @@ import ClientInformation from "./components/ClientInformation";
 import InvoiceInformation from "./components/InvoiceInformation";
 import TableForm from "./components/TableForm";
 import ReactToPrint from "react-to-print";
+import axios from "axios";
 
 function App() {
   const [showInvoice, setShowInvoice] = useState(false);
@@ -29,12 +30,38 @@ function App() {
   const [amount, setAmount] = useState("");
   const [list, setList] = useState([]);
   const [total, setTotal] = useState(0);
+  const [error, setError] = useState("");
 
   const componentRef = useRef();
 
   const handlePrint = () => {
     window.print();
   };
+
+  const postData = async () => {
+    const postedData = {
+      name: name,
+      address: address,
+      email: email,
+      phone: phone,
+      bankName: bankName,
+      bankAccount: bankAccount,
+      clientName: clientName,
+      clientAddress: clientAddress,
+    };
+
+    await axios
+      .post("http://localhost:4000/tutor", postedData)
+      .then((res) => setError(<p>{res.data}</p>));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    setError("");
+    postData();
+  };
+
   return (
     <>
       <main className="m-5 p-5 bg-white rounded shadow">
@@ -187,6 +214,27 @@ function App() {
                 onChange={(e) => setBankAccount(e.target.value)}
               />
 
+              <button
+                type="submit"
+                onClick={handleSubmit}
+                className="bg-blue-500
+              text-white
+              font-bold
+              py-2
+              px-8
+              rounded
+              shadow
+              border-2
+              border-blue-500
+              hover:bg-transparent
+              hover:text-blue-500
+              transition-all
+              duration-300
+              mb-5"
+              >
+                Update Tutor Information
+              </button>
+
               <label htmlFor="clientName">Client's Name</label>
               <input
                 type="text"
@@ -206,6 +254,26 @@ function App() {
                 value={clientAddress}
                 onChange={(e) => setClientAddress(e.target.value)}
               />
+
+              <button
+                type="submit"
+                className="bg-blue-500
+              text-white
+              font-bold
+              py-2
+              px-8
+              rounded
+              shadow
+              border-2
+              border-blue-500
+              hover:bg-transparent
+              hover:text-blue-500
+              transition-all
+              duration-300
+              mb-5"
+              >
+                Update Client Information
+              </button>
 
               <label htmlFor="invoiceNumber">Invoice Number</label>
               <input
