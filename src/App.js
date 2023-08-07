@@ -46,8 +46,6 @@ function App() {
       phone: phone,
       bankName: bankName,
       bankAccount: bankAccount,
-      clientName: clientName,
-      clientAddress: clientAddress,
     };
 
     await axios
@@ -60,6 +58,42 @@ function App() {
 
     setError("");
     postData();
+  };
+
+  const postClientData = async () => {
+    const postedClientData = {
+      clientName: clientName,
+      clientAddress: clientAddress,
+    };
+
+    await axios
+      .post("http://localhost:4000/client", postedClientData)
+      .then((res) => setError(<p>{res.data}</p>));
+  };
+
+  const handleClientSubmit = (e) => {
+    e.preventDefault();
+    setError("");
+    postClientData();
+  };
+
+  const postInvoiceData = async () => {
+    const postedInvoiceData = {
+      date: date,
+      hours: hours,
+      amount: amount,
+      total: total,
+    };
+
+    await axios
+      .post("http://localhost:4000/invoice", postedInvoiceData)
+      .then((res) => setError(<p>{res.data}</p>));
+  };
+
+  const handleInvoiceSubmit = (e) => {
+    e.preventDefault();
+    setError("");
+    postInvoiceData();
   };
 
   return (
@@ -257,6 +291,7 @@ function App() {
 
               <button
                 type="submit"
+                onClick={handleClientSubmit}
                 className="bg-blue-500
               text-white
               font-bold
@@ -320,6 +355,27 @@ function App() {
                   setTotal={setTotal}
                 />
               </article>
+
+              <button
+                type="submit"
+                onClick={handleInvoiceSubmit}
+                className="bg-blue-500
+              text-white
+              font-bold
+              py-2
+              px-8
+              rounded
+              shadow
+              border-2
+              border-blue-500
+              hover:bg-transparent
+              hover:text-blue-500
+              transition-all
+              duration-300
+              mb-5"
+              >
+                Update Invoice Information
+              </button>
 
               <label htmlFor="notes">Additional Notes</label>
               <textarea
